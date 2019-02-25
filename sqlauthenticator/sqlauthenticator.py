@@ -30,7 +30,12 @@ class SQLAuthenticator(Authenticator):
 
                 cursor.execute(sql_formatted)
                 result = cursor.fetchone()
-                if result and result['password']==data['password']:
+                print(type(result['password']))
+                print(result['password'])
+
+                print(type(data['password']))
+                print(data['password'])
+                if result and str(result['password'])==data['password']:
                     return data['username']
 
         finally:

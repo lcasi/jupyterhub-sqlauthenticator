@@ -30,8 +30,7 @@ class SQLAuthenticator(Authenticator):
 
                 cursor.execute(sql_formatted)
                 result = cursor.fetchone()
-                if result and self._verify_password_hash(result['password'],
-                                                         data['password']):
+                if result and result['password'],data['password']:
                     return data['username']
 
         finally:
